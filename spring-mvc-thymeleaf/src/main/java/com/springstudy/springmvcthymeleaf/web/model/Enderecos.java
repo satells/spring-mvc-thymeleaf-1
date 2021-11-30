@@ -1,9 +1,13 @@
 package com.springstudy.springmvcthymeleaf.web.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Enderecos {
@@ -18,6 +22,9 @@ public class Enderecos {
 	private String logradouro;
 	private Integer numero;
 	private String uf;
+
+	@OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
+	private List<Funcionarios> funcionario;
 
 	public Integer getId() {
 		return id;

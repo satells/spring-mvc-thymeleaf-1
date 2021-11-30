@@ -1,5 +1,8 @@
 package com.springstudy.springmvcthymeleaf.web.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cargos {
@@ -19,6 +23,9 @@ public class Cargos {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "departamento_id")
 	private Departamentos departamentos;
+
+	@OneToMany(mappedBy = "cargo", cascade = CascadeType.ALL)
+	private List<Funcionarios> funcionario;
 
 	public Integer getId() {
 		return id;

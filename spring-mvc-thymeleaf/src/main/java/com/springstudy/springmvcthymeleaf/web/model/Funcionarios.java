@@ -1,12 +1,15 @@
 package com.springstudy.springmvcthymeleaf.web.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Funcionarios {
@@ -14,12 +17,18 @@ public class Funcionarios {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Date dataeentrada;
-	private Date datasaida;
+	private LocalDate dataeentrada;
+	private LocalDate datasaida;
 	private String nome;
 	private BigDecimal salario;
-	private Integer cargo_id;
-	private Integer endereco_id;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cargo_id")
+	private Cargos cargo;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "endereco_id")
+	private Enderecos endereco;
 
 	public Integer getId() {
 		return id;
@@ -29,19 +38,19 @@ public class Funcionarios {
 		this.id = id;
 	}
 
-	public Date getDataeentrada() {
+	public LocalDate getDataeentrada() {
 		return dataeentrada;
 	}
 
-	public void setDataeentrada(Date dataeentrada) {
+	public void setDataeentrada(LocalDate dataeentrada) {
 		this.dataeentrada = dataeentrada;
 	}
 
-	public Date getDatasaida() {
+	public LocalDate getDatasaida() {
 		return datasaida;
 	}
 
-	public void setDatasaida(Date datasaida) {
+	public void setDatasaida(LocalDate datasaida) {
 		this.datasaida = datasaida;
 	}
 
@@ -59,22 +68,6 @@ public class Funcionarios {
 
 	public void setSalario(BigDecimal salario) {
 		this.salario = salario;
-	}
-
-	public Integer getCargo_id() {
-		return cargo_id;
-	}
-
-	public void setCargo_id(Integer cargo_id) {
-		this.cargo_id = cargo_id;
-	}
-
-	public Integer getEndereco_id() {
-		return endereco_id;
-	}
-
-	public void setEndereco_id(Integer endereco_id) {
-		this.endereco_id = endereco_id;
 	}
 
 }

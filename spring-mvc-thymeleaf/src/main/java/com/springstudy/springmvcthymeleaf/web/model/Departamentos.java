@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Departamentos {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
