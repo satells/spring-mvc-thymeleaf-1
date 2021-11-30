@@ -1,4 +1,4 @@
-package com.springstudy.springmvcthymeleaf.web.model;
+package com.springstudy.springmvcthymeleaf.web.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -24,7 +24,7 @@ public class Funcionarios {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cargo_id")
-	private Cargos cargo;
+	private Cargo cargo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "endereco_id")

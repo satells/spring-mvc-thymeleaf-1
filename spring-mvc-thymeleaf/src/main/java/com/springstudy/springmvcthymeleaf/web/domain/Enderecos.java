@@ -1,4 +1,4 @@
-package com.springstudy.springmvcthymeleaf.web.model;
+package com.springstudy.springmvcthymeleaf.web.domain;
 
 import java.util.List;
 
