@@ -8,9 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "departamentos")
-public class Departamento extends AbstractEntity<Long> {
+public class Departamento extends AbstractEntity<Integer> {
 
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;

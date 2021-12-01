@@ -3,36 +3,42 @@ package com.springstudy.springmvcthymeleaf.web.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
-public class Enderecos {
+@Table(name = "enderecos")
+public class Endereco extends AbstractEntity<Integer> {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String bairro;
-	private String cep;
-	private String cidade;
-	private String complemento;
+	@Column(nullable = false)
 	private String logradouro;
+
+	@Column(nullable = false, length = 5)
 	private Integer numero;
-	private String uf;
+
+	@Column(nullable = true)
+	private String complemento;
+
+	@Column(nullable = false)
+	private String bairro;
+
+	@Column(nullable = false)
+	private String cidade;
+
+	@Column(nullable = false, length = 2)
+	@Enumerated(EnumType.STRING)
+	private UF uf;
+
+	@Column(nullable = false, length = 9)
+	private String cep;
 
 	@OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
-	private List<Funcionarios> funcionario;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	private List<Funcionario> funcionario;
 
 	public String getBairro() {
 		return bairro;
@@ -82,12 +88,20 @@ public class Enderecos {
 		this.numero = numero;
 	}
 
-	public String getUf() {
+	public UF getUf() {
 		return uf;
 	}
 
-	public void setUf(String uf) {
+	public void setUf(UF uf) {
 		this.uf = uf;
+	}
+
+	public List<Funcionario> getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(List<Funcionario> funcionario) {
+		this.funcionario = funcionario;
 	}
 
 }

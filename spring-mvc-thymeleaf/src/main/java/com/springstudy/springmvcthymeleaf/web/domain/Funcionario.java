@@ -3,40 +3,38 @@ package com.springstudy.springmvcthymeleaf.web.domain;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
-public class Funcionarios {
+@Table(name = "funcionarios")
+public class Funcionario extends AbstractEntity<Integer> {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private LocalDate dataeentrada;
-	private LocalDate datasaida;
+	@Column(nullable = false, unique = true)
 	private String nome;
+	@Column(nullable = false, columnDefinition = "decimal default 0.00")
 	private BigDecimal salario;
+
+	@Column(nullable = false, columnDefinition = "date")
+	private LocalDate dataeentrada;
+
+	@Column(columnDefinition = "date")
+	private LocalDate datasaida;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "endereco_id")
+	private Endereco endereco;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cargo_id")
 	private Cargo cargo;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "endereco_id")
-	private Enderecos endereco;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public LocalDate getDataeentrada() {
 		return dataeentrada;

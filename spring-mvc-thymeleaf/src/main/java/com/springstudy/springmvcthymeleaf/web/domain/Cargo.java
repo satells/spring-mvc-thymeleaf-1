@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "cargos")
 public class Cargo extends AbstractEntity<Integer> {
@@ -23,7 +24,7 @@ public class Cargo extends AbstractEntity<Integer> {
 	private Departamento departamentos;
 
 	@OneToMany(mappedBy = "cargo", cascade = CascadeType.ALL)
-	private List<Funcionarios> funcionario;
+	private List<Funcionario> funcionario;
 
 	public String getNome() {
 		return nome;
@@ -39,6 +40,14 @@ public class Cargo extends AbstractEntity<Integer> {
 
 	public void setDepartamentos(Departamento departamentos) {
 		this.departamentos = departamentos;
+	}
+
+	public List<Funcionario> getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(List<Funcionario> funcionario) {
+		this.funcionario = funcionario;
 	}
 
 }
