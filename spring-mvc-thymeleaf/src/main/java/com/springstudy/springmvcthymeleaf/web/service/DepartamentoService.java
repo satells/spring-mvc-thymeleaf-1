@@ -11,7 +11,7 @@ import com.springstudy.springmvcthymeleaf.web.exception.DepartamentoRuntimeExcep
 import com.springstudy.springmvcthymeleaf.web.repository.DepartamentoReposiroty;
 
 @Service
-@Transactional(readOnly = false)
+@Transactional
 public class DepartamentoService {
 
 	@Autowired
