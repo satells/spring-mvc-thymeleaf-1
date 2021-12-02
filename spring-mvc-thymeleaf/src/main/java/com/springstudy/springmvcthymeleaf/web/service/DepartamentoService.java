@@ -29,7 +29,7 @@ public class DepartamentoService {
 	}
 
 	@Transactional(readOnly = true)
-	public Departamento findById(Integer id) {
+	public Departamento buscarPorId(Integer id) {
 		Optional<Departamento> found = repository.findById(id);
 		if (found.isPresent()) {
 			return found.get();

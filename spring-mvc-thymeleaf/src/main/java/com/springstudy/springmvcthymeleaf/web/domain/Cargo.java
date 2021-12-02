@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -19,9 +18,9 @@ public class Cargo extends AbstractEntity<Integer> {
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "departamento_id")
-	private Departamento departamentos;
+	private Departamento departamento;
 
 	@OneToMany(mappedBy = "cargo", cascade = CascadeType.ALL)
 	private List<Funcionario> funcionario;
@@ -34,12 +33,12 @@ public class Cargo extends AbstractEntity<Integer> {
 		this.nome = nome;
 	}
 
-	public Departamento getDepartamentos() {
-		return departamentos;
+	public Departamento getDepartamento() {
+		return departamento;
 	}
 
-	public void setDepartamentos(Departamento departamentos) {
-		this.departamentos = departamentos;
+	public void setDepartamentos(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
 	public List<Funcionario> getFuncionario() {

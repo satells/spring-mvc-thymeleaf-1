@@ -16,7 +16,7 @@ public class Departamento extends AbstractEntity<Integer> {
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
 
-	@OneToMany(mappedBy = "departamentos", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL)
 	private List<Cargo> cargos;
 
 	public String getNome() {

@@ -31,6 +31,7 @@ public class DepartamentoController {
 	public String listar(ModelMap model) {
 
 		List<Departamento> lista = service.buscarTodos();
+
 		model.addAttribute("departamentos", lista);
 
 		return "/departamento/lista";
@@ -47,7 +48,7 @@ public class DepartamentoController {
 
 	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Integer id, ModelMap model) {
-		Departamento departamento = service.findById(id);
+		Departamento departamento = service.buscarPorId(id);
 
 		model.addAttribute("departamento", departamento);
 
