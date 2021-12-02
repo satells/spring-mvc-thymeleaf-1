@@ -1,5 +1,6 @@
 package com.springstudy.springmvcthymeleaf.web.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,23 @@ public class DepartamentoService {
 			return found.get();
 		}
 		throw new DepartamentoRuntimeException("Id de Departamento não encontrado");
+	}
+
+	public List<Departamento> buscarTodos() {
+		return repository.findAllByOrderByNomeAsc();
+	}
+
+	public void excluir(Integer id) {
+		repository.deleteById(id);
+
+	}
+
+	public boolean depatamentoTemCargos(Integer id) {
+		Departamento departamento = repository.findById(id).get();
+		if (departamento.getCargos().isEmpty()) {
+			return false;
+		}
+		return true;
+
 	}
 }
