@@ -15,13 +15,11 @@ public class StringToDepartamentoConverter implements Converter<String, Departam
 
 	@Override
 	public Departamento convert(String text) {
-		System.out.println("fdasfdsasd>" + text);
 		if (text.isEmpty()) {
 			return null;
 		}
 
 		Integer id = Integer.valueOf(text);
-		System.out.println("fdasfdsasd>" + id);
 		return service.buscarPorId(id);
 	}
 
