@@ -33,7 +33,7 @@ create table enderecos(
 
 create table funcionarios(
 	id 		serial not null,
-	dataeentrada	date not null,
+	dataentrada	date not null,
 	datasaida 	date,
 	nome 		varchar(255) not null,
 	salario 	decimal not null,
