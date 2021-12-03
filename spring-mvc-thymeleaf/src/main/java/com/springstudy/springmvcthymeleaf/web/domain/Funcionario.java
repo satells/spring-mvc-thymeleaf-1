@@ -23,10 +23,10 @@ public class Funcionario extends AbstractEntity<Integer> {
 	private BigDecimal salario;
 
 	@Column(nullable = false, columnDefinition = "date")
-	private LocalDate dataeentrada;
+	private LocalDate dataEntrada;
 
 	@Column(columnDefinition = "date")
-	private LocalDate datasaida;
+	private LocalDate dataSaida;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id")
@@ -36,20 +36,36 @@ public class Funcionario extends AbstractEntity<Integer> {
 	@JoinColumn(name = "cargo_id")
 	private Cargo cargo;
 
-	public LocalDate getDataeentrada() {
-		return dataeentrada;
+	public LocalDate getDataEntrada() {
+		return dataEntrada;
 	}
 
-	public void setDataeentrada(LocalDate dataeentrada) {
-		this.dataeentrada = dataeentrada;
+	public void setDataEntrada(LocalDate dataEntrada) {
+		this.dataEntrada = dataEntrada;
 	}
 
-	public LocalDate getDatasaida() {
-		return datasaida;
+	public LocalDate getDataSaida() {
+		return dataSaida;
 	}
 
-	public void setDatasaida(LocalDate datasaida) {
-		this.datasaida = datasaida;
+	public void setDataSaida(LocalDate dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 
 	public String getNome() {
