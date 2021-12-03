@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springstudy.springmvcthymeleaf.web.domain.Cargo;
@@ -74,6 +75,22 @@ public class FuncionariosController {
 		attr.addFlashAttribute("success", "Funionário inserido com sucesso.");
 
 		return "redirect:/funcionarios/cadastrar";
+	}
+
+	@GetMapping("/buscar/nome")
+	public String buscaPorNome(@RequestParam("nome") String nome, ModelMap model) {
+		List<Funcionario> funcionarios = funcionarioService.buscaPorNome(nome);
+		model.addAttribute("funcionarios", funcionarios);
+
+		return "/funcionario/lista";
+	}
+
+	@GetMapping("/buscar/cargo")
+	public String buscaPorCargo(@RequestParam("id") Integer id, ModelMap model) {
+		List<Funcionario> funcionarios = funcionarioService.buscaPorIdCargo(id);
+		model.addAttribute("funcionarios", funcionarios);
+
+		return "/funcionario/lista";
 	}
 
 	@ModelAttribute("cargos")
