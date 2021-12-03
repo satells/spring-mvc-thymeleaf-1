@@ -35,4 +35,9 @@ public class Departamento extends AbstractEntity<Integer> {
 		this.cargos = cargos;
 	}
 
+	@Override
+	public String toString() {
+		return "Departamento [nome=" + nome + ", id=" + id + "]";
+	}
+
 }

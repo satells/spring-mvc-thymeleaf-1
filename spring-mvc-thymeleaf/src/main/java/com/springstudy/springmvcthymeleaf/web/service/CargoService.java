@@ -22,4 +22,21 @@ public class CargoService {
 		return repository.findAllByOrderByNome();
 	}
 
+	public Cargo buscaPorId(Integer id) {
+		return repository.findById(id).get();
+	}
+
+	public void excluir(Integer id) {
+		repository.deleteById(id);
+	}
+
+	public boolean cargoTemFuncionarios(Integer id) {
+		Cargo cargo = repository.findById(id).get();
+		if (cargo.getFuncionario().isEmpty()) {
+			return false;
+		}
+
+		return true;
+	}
+
 }

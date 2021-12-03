@@ -13,7 +13,7 @@ public abstract class AbstractEntity<ID extends Serializable> implements Seriali
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private ID id;
+	ID id;
 
 	public ID getId() {
 		return id;
