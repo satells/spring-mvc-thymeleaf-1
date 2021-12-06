@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import com.springstudy.springmvcthymeleaf.web.domain.Departamento;
-import com.springstudy.springmvcthymeleaf.web.service.DepartamentoService;
+import com.springstudy.springmvcthymeleaf.domain.Departamento;
+import com.springstudy.springmvcthymeleaf.service.DepartamentoService;
 
 @Component
 public class StringToDepartamentoConverter implements Converter<String, Departamento> {

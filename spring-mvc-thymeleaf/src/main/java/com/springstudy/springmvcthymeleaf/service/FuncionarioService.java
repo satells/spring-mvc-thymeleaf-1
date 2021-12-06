@@ -1,4 +1,4 @@
-package com.springstudy.springmvcthymeleaf.web.service;
+package com.springstudy.springmvcthymeleaf.service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springstudy.springmvcthymeleaf.web.domain.Funcionario;
-import com.springstudy.springmvcthymeleaf.web.repository.FuncionarioRepository;
+import com.springstudy.springmvcthymeleaf.domain.Funcionario;
+import com.springstudy.springmvcthymeleaf.repository.FuncionarioRepository;
 
 @Service
 @Transactional(readOnly = true)

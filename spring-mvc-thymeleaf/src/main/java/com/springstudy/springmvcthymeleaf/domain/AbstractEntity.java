@@ -1,4 +1,4 @@
-package com.springstudy.springmvcthymeleaf.web.domain;
+package com.springstudy.springmvcthymeleaf.domain;
 
 import java.io.Serializable;
 

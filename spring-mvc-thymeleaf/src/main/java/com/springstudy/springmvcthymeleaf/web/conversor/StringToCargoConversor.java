@@ -3,8 +3,8 @@ package com.springstudy.springmvcthymeleaf.web.conversor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 
-import com.springstudy.springmvcthymeleaf.web.domain.Cargo;
-import com.springstudy.springmvcthymeleaf.web.service.CargoService;
+import com.springstudy.springmvcthymeleaf.domain.Cargo;
+import com.springstudy.springmvcthymeleaf.service.CargoService;
 
 public class StringToCargoConversor implements Converter<String, Cargo> {
 

@@ -1,12 +1,12 @@
-package com.springstudy.springmvcthymeleaf.web.service;
+package com.springstudy.springmvcthymeleaf.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springstudy.springmvcthymeleaf.web.domain.Cargo;
-import com.springstudy.springmvcthymeleaf.web.repository.CargoRepository;
+import com.springstudy.springmvcthymeleaf.domain.Cargo;
+import com.springstudy.springmvcthymeleaf.repository.CargoRepository;
 
 @Service
 public class CargoService {

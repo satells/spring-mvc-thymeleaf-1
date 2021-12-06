@@ -1,4 +1,4 @@
-package com.springstudy.springmvcthymeleaf.web.exception;
+package com.springstudy.springmvcthymeleaf.exception;
 
 @SuppressWarnings("serial")
 public class DepartamentoRuntimeException extends RuntimeException {

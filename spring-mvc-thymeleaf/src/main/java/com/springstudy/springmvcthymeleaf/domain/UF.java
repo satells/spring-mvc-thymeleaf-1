@@ -1,4 +1,4 @@
-package com.springstudy.springmvcthymeleaf.web.domain;
+package com.springstudy.springmvcthymeleaf.domain;
 
 public enum UF {
 	AC("AC", "Acre"), AL("AL", "Alagoas"), AM("AM", "Amazonas"), BA("BA", "Bahia"), CE("CE", "Ceará"), DF("DF", "Distrito Federal"), ES("ES", "Espírito Santo"), GO("GO", "Goiás"), MA("MA", "Maranhão"), MT("MT", "Mato Grosso"),

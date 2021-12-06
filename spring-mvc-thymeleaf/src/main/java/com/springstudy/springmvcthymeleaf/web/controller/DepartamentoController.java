@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.springstudy.springmvcthymeleaf.web.domain.Departamento;
-import com.springstudy.springmvcthymeleaf.web.service.DepartamentoService;
+import com.springstudy.springmvcthymeleaf.domain.Departamento;
+import com.springstudy.springmvcthymeleaf.service.DepartamentoService;
 
 @Controller
 @RequestMapping("/departamentos")

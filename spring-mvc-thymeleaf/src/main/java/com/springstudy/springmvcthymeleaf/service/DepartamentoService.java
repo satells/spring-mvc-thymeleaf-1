@@ -1,4 +1,4 @@
-package com.springstudy.springmvcthymeleaf.web.service;
+package com.springstudy.springmvcthymeleaf.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springstudy.springmvcthymeleaf.web.domain.Departamento;
-import com.springstudy.springmvcthymeleaf.web.repository.DepartamentoReposiroty;
+import com.springstudy.springmvcthymeleaf.domain.Departamento;
+import com.springstudy.springmvcthymeleaf.repository.DepartamentoReposiroty;
 
 @Service
 @Transactional

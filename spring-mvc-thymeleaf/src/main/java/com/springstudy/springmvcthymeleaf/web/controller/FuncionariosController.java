@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.springstudy.springmvcthymeleaf.web.domain.Cargo;
-import com.springstudy.springmvcthymeleaf.web.domain.Funcionario;
-import com.springstudy.springmvcthymeleaf.web.domain.UF;
-import com.springstudy.springmvcthymeleaf.web.service.CargoService;
-import com.springstudy.springmvcthymeleaf.web.service.FuncionarioService;
+import com.springstudy.springmvcthymeleaf.domain.Cargo;
+import com.springstudy.springmvcthymeleaf.domain.Funcionario;
+import com.springstudy.springmvcthymeleaf.domain.UF;
+import com.springstudy.springmvcthymeleaf.service.CargoService;
+import com.springstudy.springmvcthymeleaf.service.FuncionarioService;
 
 @Controller
 @RequestMapping("/funcionarios")
