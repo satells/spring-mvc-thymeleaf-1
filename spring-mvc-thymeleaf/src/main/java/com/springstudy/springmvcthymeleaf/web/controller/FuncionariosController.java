@@ -1,8 +1,10 @@
 package com.springstudy.springmvcthymeleaf.web.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -96,6 +98,14 @@ public class FuncionariosController {
 	@ModelAttribute("cargos")
 	public List<Cargo> getCargos() {
 		return cargoService.buscaTodos();
+	}
+
+	@GetMapping("/buscar/data")
+	public String getPorData(@RequestParam(name = "entrada", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entrada,
+			@RequestParam(name = "saida", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate saida, ModelMap model) {
+		model.addAttribute("funcionarios", funcionarioService.buscaPorData(entrada, saida));
+
+		return "/funcionario/lista";
 	}
 
 	@ModelAttribute("ufs")

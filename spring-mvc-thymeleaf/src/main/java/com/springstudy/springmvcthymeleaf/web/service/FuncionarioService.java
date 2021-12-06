@@ -1,5 +1,7 @@
 package com.springstudy.springmvcthymeleaf.web.service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +45,17 @@ public class FuncionarioService {
 
 	public List<Funcionario> buscaPorIdCargo(Integer id) {
 		return repository.buscaPorIdCargo(id);
+	}
+
+	public List<Funcionario> buscaPorData(LocalDate entrada, LocalDate saida) {
+
+		if (entrada != null && saida != null) {
+			return repository.findByDataEntradaAndByDataSaida(entrada, saida);
+		} else if (entrada != null) {
+			return repository.findByDataEntrada(entrada);
+		} else if (saida != null) {
+			return repository.findByDataSaida(saida);
+		}
+		return new ArrayList<Funcionario>();
 	}
 }

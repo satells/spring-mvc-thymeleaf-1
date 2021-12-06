@@ -2,9 +2,12 @@ package com.springstudy.springmvcthymeleaf.web.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,12 +41,14 @@ public class DepartamentoController {
 	}
 
 	@PostMapping("/salvar")
-	public String salvar(Departamento departamento, RedirectAttributes attr) {
+	public String salvar(@Valid Departamento departamento, BindingResult result, RedirectAttributes attr) {
+		if (result.hasErrors()) {
+			return "/departamento/cadastro";
+		}
 
 		if (service.existeNome(departamento.getNome())) {
 			attr.addFlashAttribute("fail", "Departamento já cadastrado.");
 			attr.addAttribute("departamento", departamento);
-
 		} else {
 			service.save(departamento);
 			attr.addFlashAttribute("success", "Departamento inserido com sucesso.");
@@ -62,7 +67,11 @@ public class DepartamentoController {
 	}
 
 	@PostMapping("/editar")
-	public String editar(Departamento departamento, RedirectAttributes attr) {
+	public String editar(@Valid Departamento departamento, BindingResult result, RedirectAttributes attr) {
+		if (result.hasErrors()) {
+			return "/departamento/cadastro";
+		}
+
 		service.save(departamento);
 
 		attr.addFlashAttribute("success", "Departamento editado com sucesso.");
