@@ -10,4 +10,6 @@ public interface DepartamentoReposiroty extends JpaRepository<Departamento, Inte
 
 	List<Departamento> findAllByOrderByNomeAsc();
 
+	Boolean existsByNome(String nome);
+
 }
